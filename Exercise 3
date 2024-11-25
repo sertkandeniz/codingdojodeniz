@@ -1,0 +1,59 @@
+beakers = {
+    "1": [1, 3, 2, 1],
+    "2": [1, 3, 2, 2],
+    "3": [3, 2, 1, 3],
+    "4": [0, 0, 0, 0],
+    "5": [0, 0, 0, 0],
+}
+
+result = 0
+
+x = input("Choose beaker to pour out:")
+y = input("Choose beaker to pour in:")
+
+Pourout = beakers[x]
+Pourin = beakers[y]
+
+Initiallen = len(Pourout)
+
+for i in Pourout:
+    if Pourout[-1] == 0:
+        Pourout.remove(0)
+
+if Pourin[-1] > 0:
+    pass
+else:
+    for i in reversed(Pourin):
+        if i == 0:
+            pass
+        elif i == Pourout[-1]:
+            result = 1
+            break
+
+if result == 0:
+    for i in Pourin:
+        if Pourin[-1] == 0:
+            Pourin.remove(0)
+
+if Pourin[0] == 0:
+    result =1 
+
+if result == 1:
+    for i in Pourin:
+        if Pourin[-1] == 0:
+            Pourin.remove(0)    
+    Pourin.append(Pourout[-1])
+    Pourout.remove(Pourout[-1])
+    print("Legal Move")
+else: 
+    print("Illegal Move")
+
+for i in Pourout:
+    if len(Pourout) < Initiallen:
+        Pourout.append(0)
+
+for i in Pourin:
+    if len(Pourin) < Initiallen:
+        Pourin.append(0)
+
+print(beakers)

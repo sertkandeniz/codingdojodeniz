@@ -1,0 +1,67 @@
+beakers = {
+    "1": [1, 0, 0],
+    "2": [2, 1, 2],
+    "3": [2, 1, 0]
+}
+
+result = 0
+
+x = input("Choose beaker to pour out:")
+y = input("Choose beaker to pour in:")
+
+Pourout = beakers[x]
+Pourin = beakers[y]
+
+if Pourin[2] > 0:
+    print("Illegal Move")
+
+
+for i in Pourout:
+    if Pourout[-1] == 0:
+        Pourout.remove(0)
+
+if Pourin[1] == 1:
+    if Pourout[-1] == 1:
+        print("Legal Move")
+        result = 1
+    elif Pourout[-1] == 2:
+        print("Illegal Move")
+elif Pourin[1] == 2:
+    if Pourout[-1] == 2:
+        print("Legal Move")
+        result = 1
+    elif Pourout[-1] == 1:
+        print("Illegal Move")
+elif Pourin[1] == 0:
+    if Pourin[0] == 1:
+        if Pourout[-1] == 1:
+            print("Legal Move")
+            result = 1
+        elif Pourout[-1] == 2:
+            print("Illegal Move")
+    elif Pourin[0] == 2:
+        if Pourout[-1] == 2:
+            print("Legal Move")
+            result = 1
+        elif Pourout[-1] == 1:
+            print("Illegal Move")
+elif Pourin[0] == 0:
+    print("Legal Move")
+    result = 1
+
+if result == 1:
+    for i in Pourin:
+        if Pourin[-1] == 0:
+            Pourin.remove(0)
+    Pourin.append(Pourout[-1])
+    Pourout.remove(Pourout[-1])
+
+for i in Pourout:
+    if len(Pourout) < 3:
+        Pourout.append(0)
+
+for i in Pourin:
+    if len(Pourin) < 3:
+        Pourin.append(0)
+
+print(beakers)
