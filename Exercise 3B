@@ -1,0 +1,12 @@
+Today I learnt a valuable lesson on clean code. In the first Exercise I got confused on a for loop and tried to do it without it.
+Which made the code much longer and confusing. As it is also not looping, it caused me to specify each other requirement one by one.
+Later when I moved on to the next Excersizes, which moves on top of the first one, the code just got more confusing. 
+The last version on the Exercise 2 was working for the specific case, but it is hard to know if it would work on other test cases.
+When the Exercise 3 was displayed, I knew it would not work in the case. Thus I wrote the for loop in the beginning for the 3rd case.
+Although I still had to put all specifications from Exercise 2 to the Exercise 3. Because they were not build on the same functions.
+The last verison of the Exercise 3 failed. Although it would probably work for some test cases, it would often keep failing.
+My next steps would have been:
+1. Start the Exercise 1 and get rid of all specific cases at the beginning
+2. Replace all the if/else conditions with a for loop
+3. In Exercise 2: I would also not remove elements and append again, but use the for loop to change elements in lists
+4. In that case, I believe Exercise 3 would not be much different then the Exercise 2
